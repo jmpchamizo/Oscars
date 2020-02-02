@@ -3,3 +3,6 @@ class FilmNotFoundError(Exception):
 
 class UrlNotFoundError(Exception):
     pass
+
+class PropertyNotFoundError(Exception):
+    pass
