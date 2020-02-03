@@ -14,7 +14,6 @@
 <li>-fa: "y" Hará que se conecte con Filmaffinity y los datos los datos.</li>
 <li>-tm: "y" Hará que se conecte con TheMovieDB y actualice los datos.</li>
 </ul>
-<ul>
 <p>Asi la función loads_oscar_final se encarga de coger esos datos y crear un único dataframe con las columnas del csv más las dos que hemos indicado de Filmaffinity y TheMovieDB</p>
 <ul>
 <li>-g Filtra por genero siendo los valores permitidos: Action','Adventure','Animation','Comedy','Crime','Documentary','Drama','Family','Fantasy','History','Horror','Music','Mystery','Romance','Science Fiction','TV Movie','Thriller','War','Western'.</li>
