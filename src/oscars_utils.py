@@ -13,7 +13,7 @@ def load_oscars_final(filmaffinity="", tmdb="", year="0"):
     #Como se tarda mucho en actualizar los datos de filmaffinity y TMDB hacemos
     #la prueba solo con un año, si se mete por consola usaremos ese, sino el 2018
     year = 2018 if year == 0 else year
-    print(year)
+
     if filmaffinity.lower == "y" or tmdb=="y":
         oscars == oscars[oscars.year_film == year]
 
