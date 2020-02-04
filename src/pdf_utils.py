@@ -2,6 +2,7 @@ from fpdf import FPDF
 import pandas as pd 
 
 def create_pdf(oscars):
+    count_cell = 0
     x_image= 15
     y_image = 14
     H_IMAGE = 51
@@ -10,7 +11,14 @@ def create_pdf(oscars):
     pdf.add_page()
     pdf.set_font('Arial', 'B', 12)
     for i,_ in enumerate(list(oscars.film)):
-        cell_film(pdf, "", x_image, y_image + H_CELL*i, H_IMAGE, oscars.film[i], oscars.Description[i], oscars.Rate[i], oscars.win[i], oscars.name[i], oscars.category[i])
+        if i == 0:
+            cell_film(pdf, "", x_image, y_image + H_CELL*count_cell, H_IMAGE, oscars.film[i], oscars.Description[i], oscars.Rate[i], oscars.win[i], oscars.name[i], oscars.category[i])
+        else:
+            cell_film(pdf, "", x_image, y_image + (H_CELL+5)*count_cell, H_IMAGE, oscars.film[i], oscars.Description[i], oscars.Rate[i], oscars.win[i], oscars.name[i], oscars.category[i])
+        count_cell += 1
+        if count_cell == 4:
+            count_cell = 0
+            pdf.add_page()
     pdf.output("archivo.pdf",'F')
 
 
@@ -18,6 +26,7 @@ def create_pdf(oscars):
 
 def cell_film(pdf=None, image="", x_image=15, y_image=15 ,h_image=51, title="",description="", rate="", win=False, name="", category=""):
     URL = "http://image.tmdb.org/t/p/w300/"
+
 
     if win:
         pdf.set_fill_color(153,153,0)
@@ -51,6 +60,7 @@ def cell_film(pdf=None, image="", x_image=15, y_image=15 ,h_image=51, title="",d
         else:
             pdf.text(x_image + 60, y, e[:-3]+"...")
             break
+    pdf.cell(190, 5, "", 0, 1, 'C')
     
 
 
