@@ -19,6 +19,7 @@ def load_oscars_final(filmaffinity="", tmdb="", year="0"):
 
     #Si el usuario quiere que actualicemos los datos de tmdb
     if tmdb.lower() == "y":
+        api.update_genresId_dict()
         TheMovieDB_df = load_tmdb_api(oscars.film, oscars.year_film, oscars)
     else:
     #sino cargamos los datos ya guardados en json de una petición anterior:

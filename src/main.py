@@ -21,7 +21,7 @@ def main(nfilms, winner, year, genre, filmaffinity, tmdb, win_lo):
         result = temp_df
     if winner.lower() == "y":
         result = result[result.win == True]
-    if winner.lower() == "n":
+    elif winner.lower() == "n":
         result = result[result.win == False]
     if type(year) == int and year > 1920:
         result = result[result.year_film == year]
@@ -31,7 +31,7 @@ def main(nfilms, winner, year, genre, filmaffinity, tmdb, win_lo):
         result = result.iloc[:nfilms].reset_index()
     else:
         result = result.iloc[:5].reset_index()
-    print(result)
+    print(result.iloc[:,:-1])
     pu.create_pdf(result)
 
 

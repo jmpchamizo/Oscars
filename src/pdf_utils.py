@@ -11,6 +11,7 @@ def create_pdf(oscars):
     pdf.add_page()
     pdf.set_font('Arial', 'B', 12)
     for i,_ in enumerate(list(oscars.film)):
+
         if i == 0:
             cell_film(pdf, "", x_image, y_image + H_CELL*count_cell, H_IMAGE, oscars.film[i], oscars.Description[i], oscars.Rate[i], oscars.win[i], oscars.name[i], oscars.category[i])
         else:
@@ -25,7 +26,7 @@ def create_pdf(oscars):
 
 
 def cell_film(pdf=None, image="", x_image=15, y_image=15 ,h_image=51, title="",description="", rate="", win=False, name="", category=""):
-    URL = "http://image.tmdb.org/t/p/w300/"
+    URL = "http://image.tmdb.org/t/p/w200/"
 
 
     if win:

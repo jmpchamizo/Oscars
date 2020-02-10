@@ -41,20 +41,26 @@ def get_properties_film(titles, years, dataframe, properties=[]):
     return pd.DataFrame(np.array(result), columns=properties)
 
 
+def convert_to_genres(id):
+    return genres[id]
+
 
 def get_genresId_dict():
+    with open('genres.json') as json_file:
+        return json.load(json_file)
+
+
+genres = get_genresId_dict()
+
+def get_genre(id):
+    return [genres[str(e)] if e!=[] and type(e) != str else "" for e in id]
+
+
+def update_genresId_dict():
     load_dotenv()
     api_key = os.getenv("API_KEY")
     url = f"https://api.themoviedb.org/3/genre/movie/list?api_key={api_key}"
     res = requests.get(url)
-    return {k:v for d in [{e["id"]: e["name"]} for e in res.json()["genres"]] for k,v in d.items()}
-
-genres = get_genresId_dict()
-def convert_to_genres(id):
-    genres = get_genresId_dict()
-    return genres[id]
-
-
-def get_genre(id):
-    return [genres[e] if e!=[] and type(e) != str else "" for e in id]
-
+    data = {k:v for d in [{e["id"]: e["name"]} for e in res.json()["genres"]] for k,v in d.items()}
+    with open('genres.json', 'w') as outfile:
+        json.dump(data, outfile)
