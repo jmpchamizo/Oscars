@@ -31,7 +31,6 @@ def create_pdf(oscars):
     pdf.set_font('NotoSans', 'B', 12)
     for i,_ in enumerate(list(oscars.film)):
         im = get_image(URL + oscars.Poster[i], i)
-        print(URL + oscars.Poster[i])
         if i == 0:
             cell_film(pdf, im, x_image, y_image + H_CELL*count_cell, H_IMAGE, oscars.film[i], oscars.Description[i], oscars.Rate[i], oscars.win[i], oscars.name[i], oscars.category[i])
         else:
