@@ -31,7 +31,8 @@ def main(nfilms, winner, year, genre, filmaffinity, tmdb, win_lo):
         result = result.iloc[:nfilms].reset_index()
     else:
         result = result.iloc[:5].reset_index()
-    print(result.iloc[:,:-1])
+    #print(result.iloc[:,:-1])
+    print(result.to_string(columns=["year_film", "film", "name", "category", "Genres", "Rate"], index=False))
     pu.create_pdf(result)
 
 

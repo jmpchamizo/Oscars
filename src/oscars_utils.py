@@ -4,15 +4,15 @@ import api_utils as api
 import scrapping_utils as sc
 
 
-def load_oscars_final(filmaffinity="", tmdb="", year="0"):
+def load_oscars_final(filmaffinity="", tmdb="", year="2018"):
     #Cargamos el dataframe que hemos escogido:
     oscars = pd.read_csv("../INPUT/the_oscar_award.csv")
     TheMovieDB_df = pd.DataFrame()
     film_df = pd.DataFrame()
 
-    #Como se tarda mucho en actualizar los datos de filmaffinity y TMDB hacemos
-    #la prueba solo con un año, si se mete por consola usaremos ese, sino el 2018
-    year = 2018 if year == 0 else year
+    #Como se tarda mucho en actualizar los datos de filmaffinity y TMDB usasremos
+    #por defecto el año 2018, si se introduce uno por consola usaremos ese.
+    #year = 2018 if year == 0 else year
 
     if filmaffinity.lower == "y" or tmdb=="y":
         oscars == oscars[oscars.year_film == year]
