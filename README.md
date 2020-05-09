@@ -46,7 +46,8 @@ $ python3 main.py -y 2018 -n 15
 </li>
 </ul>
 
-<p>La inforamción de las peliculas aplicados los filtros también se muestra en un pdf que se guarda en fichero del proyecto.</p>
+<p>La inforamción de las nominaciones tras aplicar los filtros también se muestra en un pdf que se guarda en la carpeta /src con el nombre de archivo.pdf.
+Su contenido será una ficha por cada nominación y se mostrará en amarillo si es la ganadora del Oscar.</p>
 
 
 ![N|Solid](src/img/pdf.png)
