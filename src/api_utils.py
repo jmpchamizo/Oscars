@@ -1,6 +1,4 @@
-import requests
-import json
-import os
+import requests, json, os
 import pandas as pd
 import numpy as np
 from exceptions import FilmNotFoundError

@@ -1,7 +1,7 @@
+import random, argparse
 from subprocess import check_output
 import pandas as pd
-import random
-import argparse
+import console_utils as con
 import numpy as np
 import oscars_utils as u
 import api_utils as api
@@ -31,9 +31,8 @@ def main(nfilms, winner, year, genre, filmaffinity, tmdb, win_lo):
         result = result.iloc[:nfilms].reset_index()
     else:
         result = result.iloc[:5].reset_index()
-    #print(result.iloc[:,:-1])
-    print(result.to_string(columns=["year_film", "film", "name", "category", "Genres", "Rate"], index=False))
     pu.create_pdf(result)
+    con.print_result(result)
 
 
 def inf_win_gen(oscars, winner):

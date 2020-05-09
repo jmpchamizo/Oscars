@@ -10,9 +10,6 @@ def load_oscars_final(filmaffinity="", tmdb="", year="2018"):
     TheMovieDB_df = pd.DataFrame()
     film_df = pd.DataFrame()
 
-    #Como se tarda mucho en actualizar los datos de filmaffinity y TMDB usasremos
-    #por defecto el año 2018, si se introduce uno por consola usaremos ese.
-    #year = 2018 if year == 0 else year
 
     if filmaffinity.lower == "y" or tmdb=="y":
         oscars == oscars[oscars.year_film == year]
